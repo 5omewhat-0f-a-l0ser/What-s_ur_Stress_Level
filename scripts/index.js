@@ -1,0 +1,1 @@
+const startQuizBtn = document.querySelector(".quiz__start-btn");
