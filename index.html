@@ -16,38 +16,43 @@
   <body>
     <!-- this idea is simple but it might be something to start with, just my suggestion -->
     <main class="quiz">
-      <!--<section class="quiz__intro">
-      <h1 class="quiz__title">What’s Your Stress Level?</h1>
-      <p class="quiz__description">Take this short quiz to reflect on how you're feeling today.</p>
-      <button class="quiz__start-btn">Start Quiz</button>
-    </section>
+      <section class="quiz__intro">
+        <h1 class="quiz__title">What’s Your Stress Level?</h1>
+        <p class="quiz__description">
+          Take this short quiz to reflect on how you're feeling today.
+        </p>
+        <button class="quiz__start-btn">Start Quiz</button>
+      </section>
 
-  
+      <template class="quiz__template" id="quiz">
+        <form action="" class="quiz__form">
+          <ul class="quiz__form">
+            <li class="quiz__question" data-question="1">
+              <p class="quiz__question-text"></p>
+              <label for="Rarely" class="quiz__label"
+                ><input type="radio" name="q" id="Rarely" /> Rarely</label
+              >
+              <label for="Sometimes" class="quiz__label"
+                ><input type="radio" name="q" id="Sometimes" /> Sometimes</label
+              >
+              <label for="Always" class="quiz__label"
+                ><input type="radio" name="q" id="Always" /> Always</label
+              >
+            </li>
 
-      
-     <form class="quiz__form">
-      <div class="quiz__question" data-question="1">
+            <button type="submit" class="quiz__submit-btn">See Result</button>
+          </ul>
+        </form>
+      </template>
 
-       !!either hardcoded questions or template!!
-
-        <p class="quiz__question-text">How often do you feel overwhelmed?</p>
-        <label><input type="radio" name="q1"> Rarely</label>
-        <label><input type="radio" name="q1"> Sometimes</label>
-        <label><input type="radio" name=""> Often</label>
-      </div>
-
-
-
-      
-      
-      <button type="submit" class="quiz__submit-btn">See Result</button>
-    </form>
-
-    <section class="quiz__result">
-      <h2 class="quiz__result-title">Your Stress Level:</h2>
-      <p class="quiz__result-text">You seem to be a little stressed. Try to take breaks and prioritize rest.</p>
-      <button class="quiz__retry-btn">Try Again</button>
-    </section> -->
+      <section class="quiz__result">
+        <h2 class="quiz__result-title">Your Stress Level:</h2>
+        <p class="quiz__result-text">
+          You seem to be a little stressed. Try to take breaks and prioritize
+          rest.
+        </p>
+        <button class="quiz__retry-btn">Try Again</button>
+      </section>
     </main>
     <script defer src="./scripts/index.js"></script>
     <script defer src="./scripts/validation.js"></script>
