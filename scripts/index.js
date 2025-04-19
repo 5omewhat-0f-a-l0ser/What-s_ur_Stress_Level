@@ -1,14 +1,17 @@
 // DOM Elements
 const quizElements = {
-  startButton: document.querySelector(".quiz__start-btn"),
-  introSection: document.querySelector(".quiz__intro"),
-  resultSection: document.querySelector(".quiz__result"),
-  resultText: document.querySelector(".quiz__result-text"),
-  retryButton: document.querySelector(".quiz__retry-btn"),
-  template: document.getElementById("quiz-template"),
+  startButton: document.querySelector(".quiz__start-btn"), //finds the start button
+  introSection: document.querySelector(".quiz__intro"), //finds the intro section
+  resultSection: document.querySelector(".quiz__result"), //finds the result section
+  resultText: document.querySelector(".quiz__result-text"), // finds the result text
+  retryButton: document.querySelector(".quiz__retry-btn"), // finds the retry button
+  template: document.getElementById("quiz-template"), // finds the quiz template
 };
 
 // Utility Functions
+// Calculate the total score based on selected radio button values
+// Assuming each question has radio buttons with values from 1 to 4
+// This is like counting all your marbles and telling you how many you have
 function calculateScore(form) {
   let total = 0;
   const formData = new FormData(form);
@@ -17,14 +20,18 @@ function calculateScore(form) {
   }
   return total;
 }
-
+// This function takes the score and returns a message based on the score
+// It's like a fortune teller for your stress level
 function getResultMessage(score) {
   if (score <= 4) return "😌 You're super chill. Keep doing you!";
   if (score <= 7) return "🙂 You're doing okay, just take some mindful breaks.";
   if (score <= 10) return "😬 You're feeling it — maybe step away for a bit.";
   return "😱 You're very stressed. Deep breath. Water. Rest.";
 }
-
+// hides all questions except the first one and sets up event listeners for radio buttons
+// When a radio button is selected, it hides the current question and shows the next one
+// when you answer a question, it automatically moves to the next one
+// like turning the page of a book when you finish a chapter
 function setupAutoAdvance() {
   const questions = document.querySelectorAll(".quiz__question");
   const submitBtn = document.querySelector(".quiz__submit-btn");
@@ -55,6 +62,9 @@ function handleQuestionChange(currentQuestion, nextQuestion) {
 }
 
 // Event Handlers
+// makes the quiz appear
+// hides wlelcome message
+// gets everything ready to play
 function handleQuizStart() {
   const clone = quizElements.template.content.cloneNode(true);
   document.querySelector("main").appendChild(clone);
@@ -65,7 +75,9 @@ function handleQuizStart() {
 
   quizForm.addEventListener("submit", (e) => handleQuizSubmit(e, quizForm));
 }
-
+// adds up your points
+// shows you your special message
+// like getting a prize at the end of a game
 function handleQuizSubmit(evt, form) {
   evt.preventDefault();
   const score = calculateScore(form);
@@ -75,7 +87,8 @@ function handleQuizSubmit(evt, form) {
   form.style.display = "none";
   quizElements.resultSection.style.display = "block";
 }
-
+// restarts the quiz
+// like hitting the reset button on a game
 function handleQuizRetry() {
   location.reload();
 }
