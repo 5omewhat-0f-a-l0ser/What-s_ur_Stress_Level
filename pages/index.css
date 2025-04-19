@@ -1,1 +1,6 @@
-import ... 
+@import url(../blocks/header.css);
+@import url(../blocks/page.css);
+@import url(../blocks/quiz.css);
+@import url(../blocks/button.css);
+@import url(../blocks/result.css);
+@import url(../blocks/footer.css);
