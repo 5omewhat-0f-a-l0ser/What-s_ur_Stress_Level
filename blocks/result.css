@@ -1,0 +1,18 @@
+.quiz__result {
+  display: none;
+  background-color: #e6e6e6;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.quiz__result-title {
+  color: #325d79;
+  font-size: 1.5rem;
+}
+
+.quiz__result-text {
+  color: #444;
+  font-size: 1rem;
+  max-width: 400px;
+}

@@ -1,0 +1,11 @@
+.page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Poppins, Arial, sans-serif;
+  background-color: #fdf6ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
