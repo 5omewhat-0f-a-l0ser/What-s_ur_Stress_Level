@@ -3,14 +3,15 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #c5e4f3;
+  background-color: var(--header-background);
   padding: 1rem 0;
   text-align: center;
+  transition: background-color 0.3s;
 }
 
 .header__title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #325d79;
+  color: var(--title-color);
 }

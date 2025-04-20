@@ -1,0 +1,31 @@
+:root {
+  /* Light theme (default) */
+  --page-background: #fdf6ec;
+  --header-background: #c5e4f3;
+  --quiz-background: white;
+  --footer-background: #fdf6ec;
+  --primary-color: #325d79;
+  --secondary-color: #87c4e0;
+  --text-color: #333;
+  --title-color: #325d79;
+  --result-background: #e6e6e6;
+  --result-text: #444;
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --footer-text: #555;
+}
+
+[data-theme="dark"] {
+  /* Dark theme */
+  --page-background: #1a1a1a;
+  --header-background: #2d2d2d;
+  --quiz-background: #2d2d2d;
+  --footer-background: #1a1a1a;
+  --primary-color: #87c4e0;
+  --secondary-color: #325d79;
+  --text-color: #e0e0e0;
+  --title-color: #87c4e0;
+  --result-background: #3d3d3d;
+  --result-text: #e0e0e0;
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  --footer-text: #e0e0e0;
+}
