@@ -1,15 +1,12 @@
 .quiz__result {
   display: none;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   background-color: var(--result-background);
   border-radius: 12px;
   text-align: center;
-  width: auto;
-  max-width: 90%;
-  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
-  align-self: center;
-  flex-shrink: 0;
 }
 
 .quiz__result-title {

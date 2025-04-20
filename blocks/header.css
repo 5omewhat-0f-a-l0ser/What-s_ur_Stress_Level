@@ -4,7 +4,6 @@
   left: 0;
   width: 100%;
   padding: 0;
-  background-color: var(--header-background);
   text-align: center;
   transition: background-color 0.3s;
 }
