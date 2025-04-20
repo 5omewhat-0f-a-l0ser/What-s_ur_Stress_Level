@@ -3,9 +3,10 @@
   padding: 0;
   height: 100vh;
   font-family: Poppins, Arial, sans-serif;
-  background-color: #fdf6ec;
+  background-color: var(--page-background);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s;
 }

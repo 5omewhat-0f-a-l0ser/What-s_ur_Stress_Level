@@ -1,3 +1,56 @@
+// theme.js
+
+const themeToggle = document.getElementById("themeToggle");
+
+// Theme constants
+const THEMES = {
+  LIGHT: "light",
+  DARK: "dark",
+};
+
+const THEME_ICONS = {
+  [THEMES.LIGHT]: "🌙",
+  [THEMES.DARK]: "☀️",
+};
+
+// Get theme from localStorage or default to light
+const getStoredTheme = () => localStorage.getItem("theme") || THEMES.LIGHT;
+
+// Update theme icon based on current theme
+const updateThemeIcon = (theme) => {
+  themeToggle.textContent = THEME_ICONS[theme];
+};
+
+// Set theme on document and update icon
+const setTheme = (theme) => {
+  document.documentElement.setAttribute("data-theme", theme);
+  updateThemeIcon(theme);
+  localStorage.setItem("theme", theme);
+};
+
+// Toggle between light and dark themes
+const toggleTheme = () => {
+  const currentTheme =
+    document.documentElement.getAttribute("data-theme") || THEMES.LIGHT;
+  const newTheme = currentTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+  setTheme(newTheme);
+};
+
+// Initialize theme functionality
+const initializeThemeToggle = () => {
+  if (!themeToggle) return;
+
+  // Set initial theme
+  const savedTheme = getStoredTheme();
+  setTheme(savedTheme);
+
+  // Add event listener
+  themeToggle.addEventListener("click", toggleTheme);
+};
+
+// Initialize when DOM is loaded
+document.addEventListener("DOMContentLoaded", initializeThemeToggle);
+
 // DOM Elements
 const quizElements = {
   startButton: document.querySelector(".quiz__start-btn"), //finds the start button
@@ -89,6 +142,9 @@ function handleQuizSubmit(evt, form) {
 }
 // restarts the quiz
 // like hitting the reset button on a game
+// do not use location.reload() as it will refresh the entire page
+// instead, we hide the result section and show the intro section again
+// and reset the form
 function handleQuizRetry() {
   location.reload();
 }
@@ -101,3 +157,5 @@ function initializeQuiz() {
 
 // Start when DOM is ready
 document.addEventListener("DOMContentLoaded", initializeQuiz);
+
+// This is a simple quiz app that helps you check your stress level.
