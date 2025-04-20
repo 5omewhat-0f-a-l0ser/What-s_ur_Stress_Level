@@ -121,7 +121,7 @@ function handleQuestionChange(currentQuestion, nextQuestion) {
 function handleQuizStart() {
   const clone = quizElements.template.content.cloneNode(true);
   document.querySelector("main").appendChild(clone);
-  quizElements.introSection.style.display = "none";
+  quizElements.introSection.classList.add("hidden"); // Changed this line
 
   const quizForm = document.getElementById("quiz-form");
   setupAutoAdvance();
@@ -137,16 +137,21 @@ function handleQuizSubmit(evt, form) {
   const message = getResultMessage(score);
 
   quizElements.resultText.textContent = message;
-  form.style.display = "none";
-  quizElements.resultSection.style.display = "block";
+  form.classList.add("hidden"); // Changed this line
+  quizElements.resultSection.classList.remove("hidden"); // Changed this line
 }
 // restarts the quiz
 // like hitting the reset button on a game
-// do not use location.reload() as it will refresh the entire page
-// instead, we hide the result section and show the intro section again
-// and reset the form
 function handleQuizRetry() {
-  location.reload();
+  // Remove the old quiz form
+  const form = document.getElementById("quiz-form");
+  if (form) {
+    form.remove(); // This removes the entire form from the DOM
+  }
+  // Hide the result section
+  quizElements.resultSection.classList.add("hidden");
+  // Show the intro section with Start Quiz button
+  quizElements.introSection.classList.remove("hidden");
 }
 
 // Initialize Quiz
