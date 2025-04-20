@@ -1,5 +1,4 @@
-.quiz__result {
-  display: none;
+.quiz__result {ga
   padding: 1.5rem;
   background-color: var(--result-background);
   border-radius: 12px;
@@ -21,6 +20,6 @@
   margin-bottom: 1rem;
 }
 
-[hidden] {
-  display: none !important;
+.hidden {
+  display: none;
 }
