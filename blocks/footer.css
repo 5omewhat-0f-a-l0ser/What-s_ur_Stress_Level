@@ -2,13 +2,12 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 1rem;
   background: var(--footer-background);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.5rem;
+  background-color: #c5e4f3;
 }
 
 .footer__copyright {
