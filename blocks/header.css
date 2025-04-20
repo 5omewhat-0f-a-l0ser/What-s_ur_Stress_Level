@@ -3,8 +3,8 @@
   top: 0;
   left: 0;
   width: 100%;
+  padding: 0;
   background-color: var(--header-background);
-  padding: 1rem 0;
   text-align: center;
   transition: background-color 0.3s;
 }
@@ -14,4 +14,9 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--title-color);
+}
+
+.header__image {
+  width: 150px;
+  height: 150px;
 }
