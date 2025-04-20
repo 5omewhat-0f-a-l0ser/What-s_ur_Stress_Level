@@ -4,14 +4,16 @@
   left: 0;
   width: 100%;
   padding: 0;
+  background-color: var(--header-background);
   text-align: center;
+  transition: background-color 0.3s;
 }
 
 .header__title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #325d79;
+  color: var(--title-color);
 }
 
 .header__image {
