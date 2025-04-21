@@ -1,6 +1,7 @@
 .quiz__start-btn,
 .quiz__submit-btn,
 .quiz__retry-btn {
+  font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   background-color: var(--secondary-color);
   color: white;
   border: none;

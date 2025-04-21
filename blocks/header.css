@@ -6,6 +6,7 @@
   padding: 0;
   text-align: center;
   transition: background-color 0.3s;
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
 .header__title {
@@ -16,6 +17,8 @@
 }
 
 .header__image {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: auto;
+  image-rendering: auto;
+  animation: shrinkLogo 1.5s ease-out forwards;
 }
