@@ -81,6 +81,7 @@ const quizElements = {
   resultText: document.querySelector(".quiz__result-text"), // finds the result text
   retryButton: document.querySelector(".quiz__retry-btn"), // finds the retry button
   template: document.getElementById("quiz-template"), // finds the quiz template
+  submitButton: document.querySelector(".quiz__submit-btn"), // finds the submit button
 };
 
 // Utility Functions
@@ -113,7 +114,7 @@ function setupAutoAdvance() {
 
   // Hide all questions except the first one
   questions.forEach((q, i) => (q.hidden = i !== 0));
-  if (submitBtn) submitBtn.style.display = "none";
+  if (submitBtn) submitBtn.classList.add("hidden");
 
   questions.forEach((question, index) => {
     const inputs = question.querySelectorAll("input[type='radio']");
@@ -132,7 +133,7 @@ function handleQuestionChange(currentQuestion, nextQuestion) {
     nextQuestion.hidden = false;
   } else {
     const submitBtn = document.querySelector(".quiz__submit-btn");
-    if (submitBtn) submitBtn.style.display = "block";
+    if (submitBtn) submitBtn.classList.remove("hidden");
   }
 }
 
@@ -143,11 +144,10 @@ function handleQuestionChange(currentQuestion, nextQuestion) {
 function handleQuizStart() {
   const clone = quizElements.template.content.cloneNode(true);
   document.querySelector("main").appendChild(clone);
-  quizElements.introSection.style.display = "none";
-
+  quizElements.introSection.classList.add("hidden");
   const quizForm = document.getElementById("quiz-form");
+  quizElements.submitButton = document.querySelector(".quiz__submit-btn");
   setupAutoAdvance();
-
   quizForm.addEventListener("submit", (e) => handleQuizSubmit(e, quizForm));
 }
 // adds up your points
@@ -158,8 +158,10 @@ function handleQuizSubmit(evt, form) {
   const score = calculateScore(form);
   const message = getResultMessage(score);
   quizElements.resultText.textContent = message;
-  form.classList.add("hidden");
+  quizElements.introSection.classList.add("hidden");
   quizElements.resultSection.classList.remove("hidden");
+  const submitButton = document.querySelector(".quiz__submit-btn");
+  if (submitButton) submitButton.classList.add("hidden");
   fetchRandomJoke(); // Fetch a joke when the quiz is submitted
   startJokeRotation(); // Start rotating jokes
 }
