@@ -1,3 +1,78 @@
+const themeToggle = document.getElementById("themeToggle");
+
+// Theme constants
+const THEMES = {
+  LIGHT: "light",
+  DARK: "dark",
+};
+
+const THEME_ICONS = {
+  [THEMES.LIGHT]: "🌙",
+  [THEMES.DARK]: "☀️",
+};
+
+// Get theme from localStorage or default to light
+const getStoredTheme = () => localStorage.getItem("theme") || THEMES.LIGHT;
+
+// Update theme icon based on current theme
+const updateThemeIcon = (theme) => {
+  themeToggle.textContent = THEME_ICONS[theme];
+};
+
+// Set theme on document and update icon
+const setTheme = (theme) => {
+  document.documentElement.setAttribute("data-theme", theme);
+  updateThemeIcon(theme);
+  localStorage.setItem("theme", theme);
+};
+
+// Toggle between light and dark themes
+const toggleTheme = () => {
+  const currentTheme =
+    document.documentElement.getAttribute("data-theme") || THEMES.LIGHT;
+  const newTheme = currentTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+  setTheme(newTheme);
+};
+
+// Initialize theme functionality
+const initializeThemeToggle = () => {
+  if (!themeToggle) return;
+
+  // Set initial theme
+  const savedTheme = getStoredTheme();
+  setTheme(savedTheme);
+
+  // Add event listener
+  themeToggle.addEventListener("click", toggleTheme);
+};
+
+// Initialize when DOM is loaded
+document.addEventListener("DOMContentLoaded", initializeThemeToggle);
+
+const JOKE_API_URL =
+  "https://raw.githubusercontent.com/Majestyk1/stress-jokes-api/refs/heads/main/stress-jokes.json";
+
+// Fetch a random joke from the JSON file
+async function fetchRandomJoke() {
+  const jokeBox = document.getElementById("joke-box");
+
+  try {
+    const res = await fetch(JOKE_API_URL);
+    const jokes = await res.json();
+    const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+    jokeBox.textContent = randomJoke;
+  } catch (error) {
+    jokeBox.textContent =
+      "Couldn't fetch a joke. Maybe GitHub is stressed too? 😅";
+    console.error(error);
+  }
+}
+
+// Start rotating jokes every 5 seconds
+function startJokeRotation() {
+  setInterval(fetchRandomJoke, 8000); // Change joke every 5 seconds
+}
+
 // DOM Elements
 const quizElements = {
   startButton: document.querySelector(".quiz__start-btn"), //finds the start button
@@ -82,10 +157,11 @@ function handleQuizSubmit(evt, form) {
   evt.preventDefault();
   const score = calculateScore(form);
   const message = getResultMessage(score);
-
   quizElements.resultText.textContent = message;
-  form.style.display = "none";
-  quizElements.resultSection.style.display = "block";
+  form.classList.add("hidden"); // Changed this line
+  quizElements.resultSection.classList.remove("hidden"); // Changed this line
+  fetchRandomJoke(); // Fetch a joke when the quiz is submitted
+  startJokeRotation(); // Start rotating jokes
 }
 // restarts the quiz
 // like hitting the reset button on a game

@@ -20,6 +20,28 @@
   margin-bottom: 1rem;
 }
 
+.quiz__joke {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.quiz__joke-text {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .hidden {
   display: none;
 }
