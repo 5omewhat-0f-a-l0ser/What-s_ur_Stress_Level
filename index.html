@@ -11,13 +11,13 @@
     />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>What’s Your Stress Level?</title>
+    <title>CalmCheck</title>
   </head>
-  <body>
-<<<<<<< HEAD
+  <body class="page">
     <div class="page">
       <header class="header">
-        <h1 class="header__title">What’s Your Stress Level?</h1>
+        <img src="./images/quiz-logo.png" alt="logo" class="header__image">
+          <button class="theme-toggle" id="themeToggle">🌙</button>
       </header>
       <main class="quiz">
         <section class="quiz__intro">
@@ -32,75 +32,80 @@
             <form class="quiz__form" id="quiz-form">
               <ul>
                 <li class="quiz__question" data-question="1">
-                  <p class="quiz__question-text">
-                    How often do you lose focus?
-                  </p>
-                  <label class="quiz__label"
-                    ><input type="radio" name="q1" value="1" /> Never</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q1" value="2" /> Sometimes</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q1" value="3" /> Always</label
-                  >
+                  <p class="quiz__question-text">How often do you lose focus?</p>
+                  <label class="quiz__label">
+                    <input type="radio" name="q1" value="1" />
+                    <span>Never</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q1" value="2" />
+                    <span>Sometimes</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q1" value="3" />
+                    <span>Always</span>
+                  </label>
                 </li>
                 <li class="quiz__question" data-question="2">
-                  <p class="quiz__question-text">
-                    Do you tend to lost your temper over small things?
-                  </p>
-                  <label class="quiz__label"
-                    ><input type="radio" name="q2" value="1" /> Never</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q2" value="2" /> Sometimes</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q2" value="3" /> Always</label
-                  >
+                  <p class="quiz__question-text">Do you tend to lost your temper over small things?</p>
+                  <label class="quiz__label">
+                    <input type="radio" name="q2" value="1" />
+                    <span>Never</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q2" value="2" />
+                    <span>Sometimes</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q2" value="3" />
+                    <span>Always</span>
+                  </label>
                 </li>
                 <li class="quiz__question" data-question="3">
-                  <p class="quiz__question-text">
-                    How often do you get at least 8 hours of sleep?
-                  </p>
-                  <label class="quiz__label"
-                    ><input type="radio" name="q3" value="1" /> Never</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q3" value="2" /> Sometimes</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q3" value="3" /> Always</label
-                  >
+                  <p class="quiz__question-text">How often do you get at least 8 hours of sleep?</p>
+                  <label class="quiz__label">
+                    <input type="radio" name="q3" value="1" />
+                    <span>Never</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q3" value="2" />
+                    <span>Sometimes</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q3" value="3" />
+                    <span>Always</span>
+                  </label>
                 </li>
                 <li class="quiz__question" data-question="4">
-                  <p class="quiz__question-text">
-                    Do you drink coffee or any caffiene?
-                  </p>
-                  <label class="quiz__label"
-                    ><input type="radio" name="q4" value="1" /> Never</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q4" value="2" /> Sometimes</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q4" value="3" /> Always</label
-                  >
+                  <p class="quiz__question-text">Do you drink coffee or any caffiene?</p>
+                  <label class="quiz__label">
+                    <input type="radio" name="q4" value="1" />
+                    <span>Never</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q4" value="2" />
+                    <span>Sometimes</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q4" value="3" />
+                    <span>Always</span>
+                  </label>
                 </li>
                 <li class="quiz__question" data-question="5">
-                  <p class="quiz__question-text">
-                    Have you ever screamed into a pillow to prevent yourself
-                    from saying something that will get you in trouble
-                  </p>
-                  <label class="quiz__label"
-                    ><input type="radio" name="q5" value="1" /> Never</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q5" value="2" /> Sometimes</label
-                  >
-                  <label class="quiz__label"
-                    ><input type="radio" name="q5" value="3" /> Always</label
-                  >
+                  <p class="quiz__question-text">Have you ever screamed into a pillow to prevent yourself
+                    from saying something that will get you in trouble?</p>
+                  <label class="quiz__label">
+                    <input type="radio" name="q5" value="1" />
+                    <span>Never</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q5" value="2" />
+                    <span>Sometimes</span>
+                  </label>
+                  <label class="quiz__label">
+                    <input type="radio" name="q5" value="3" />
+                    <span>Always</span>
+                  </label>
                 </li>
                 <!-- Add more questions as needed -->
               </ul>
@@ -109,7 +114,7 @@
           </template>
         </section>
 
-        <section class="quiz__result">
+        <section class="quiz__result hidden">
           <h2 class="quiz__result-title">Your Stress Level:</h2>
           <p class="quiz__result-text">
             You seem to be a little stressed. Try to take breaks and prioritize
@@ -142,25 +147,72 @@
         </p>
         <button class="quiz__start-btn">Start Quiz</button>
       </section>
-
-    <section>
-          <ul class="quiz__form">
-           <! <template class="quiz__template" id="quiz">
-              <form action="" class="quiz__form"> 
-                <! currently just disabling this, but I will be working on this throughout the day/night !>
-            <li class="quiz__question" data-question="1">
-              <p class="quiz__question-text"></p>
-              <label for="Rarely" class="quiz__label"
-                ><input type="radio" name="q" id="Rarely" /> Rarely</label
-              >
-              <label for="Sometimes" class="quiz__label"
-                ><input type="radio" name="q" id="Sometimes" /> Sometimes</label
-              >
-              <label for="Always" class="quiz__label"
-                ><input type="radio" name="q" id="Always" /> Always</label
-              >
-            </li>
-
+      <section>
+        <template id="quiz-template">
+          <form class="quiz__form" id="quiz-form">
+            <ul>
+              <li class="quiz__question" data-question="1">
+                <p class="quiz__question-text">Question 1</p>
+                <label class="quiz__label"
+                  ><input type="radio" name="q1" value="1" /> Rarely</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q1" value="2" /> Sometimes</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q1" value="3" /> Always</label
+                >
+              </li>
+              <li class="quiz__question" data-question="2">
+                <p class="quiz__question-text">Question 2</p>
+                <label class="quiz__label"
+                  ><input type="radio" name="q2" value="1" /> Rarely</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q2" value="2" /> Sometimes</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q2" value="3" /> Always</label
+                >
+              </li>
+              <li class="quiz__question" data-question="3">
+                <p class="quiz__question-text">Question 3</p>
+                <label class="quiz__label"
+                  ><input type="radio" name="q3" value="1" /> Rarely</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q3" value="2" /> Sometimes</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q3" value="3" /> Always</label
+                >
+              </li>
+              <li class="quiz__question" data-question="4">
+                <p class="quiz__question-text">Question 4</p>
+                <label class="quiz__label"
+                  ><input type="radio" name="q4" value="1" /> Rarely</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q4" value="2" /> Sometimes</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q4" value="3" /> Always</label
+                >
+              </li>
+              <li class="quiz__question" data-question="5">
+                <p class="quiz__question-text">Question 5</p>
+                <label class="quiz__label"
+                  ><input type="radio" name="q5" value="1" /> Rarely</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q5" value="2" /> Sometimes</label
+                >
+                <label class="quiz__label"
+                  ><input type="radio" name="q5" value="3" /> Always</label
+                >
+              </li>
+              <!-- Add more questions as needed -->
+            </ul>
             <button type="submit" class="quiz__submit-btn">See Result</button>
           </form>
         </template>
@@ -179,5 +231,4 @@
     <script defer src="./scripts/index.js"></script>
     <script defer src="./scripts/validation.js"></script>
   </body>
-  <!--should i add a footer?-->
 </html>
