@@ -70,7 +70,17 @@ async function fetchRandomJoke() {
 
 // Start rotating jokes every 5 seconds
 function startJokeRotation() {
-  setInterval(fetchRandomJoke, 8000); // Change joke every 5 seconds
+  quizElements.jokeIntervalId = setInterval(() => {
+    fetchRandomJoke();
+  }, 8000);
+}
+
+// Stop rotating jokes
+function stopJokeRotation() {
+  if (quizElements.jokeIntervalId) {
+    clearInterval(quizElements.jokeIntervalId);
+    quizElements.jokeIntervalId = null;
+  }
 }
 
 // DOM Elements
@@ -82,6 +92,7 @@ const quizElements = {
   retryButton: document.querySelector(".quiz__retry-btn"), // finds the retry button
   template: document.getElementById("quiz-template"), // finds the quiz template
   submitButton: document.querySelector(".quiz__submit-btn"), // finds the submit button
+  jokeIntervalId: null, // ID for the joke rotation interval
 };
 
 // Utility Functions
@@ -173,6 +184,8 @@ function handleQuizRetry() {
   if (form) {
     form.remove(); // This removes the entire form from the DOM
   }
+  // Stop rotating jokes
+  stopJokeRotation();
   // Hide the result section
   quizElements.resultSection.classList.add("hidden");
   // Show the intro section with Start Quiz button
