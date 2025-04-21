@@ -1,5 +1,3 @@
-// theme.js
-
 const themeToggle = document.getElementById("themeToggle");
 
 // Theme constants
@@ -50,6 +48,30 @@ const initializeThemeToggle = () => {
 
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", initializeThemeToggle);
+
+const JOKE_API_URL =
+  "https://raw.githubusercontent.com/Majestyk1/stress-jokes-api/refs/heads/main/stress-jokes.json";
+
+// Fetch a random joke from the JSON file
+async function fetchRandomJoke() {
+  const jokeBox = document.getElementById("joke-box");
+
+  try {
+    const res = await fetch(JOKE_API_URL);
+    const jokes = await res.json();
+    const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+    jokeBox.textContent = randomJoke;
+  } catch (error) {
+    jokeBox.textContent =
+      "Couldn't fetch a joke. Maybe GitHub is stressed too? 😅";
+    console.error(error);
+  }
+}
+
+// Start rotating jokes every 5 seconds
+function startJokeRotation() {
+  setInterval(fetchRandomJoke, 8000); // Change joke every 5 seconds
+}
 
 // DOM Elements
 const quizElements = {
@@ -135,10 +157,11 @@ function handleQuizSubmit(evt, form) {
   evt.preventDefault();
   const score = calculateScore(form);
   const message = getResultMessage(score);
-
   quizElements.resultText.textContent = message;
   form.classList.add("hidden"); // Changed this line
   quizElements.resultSection.classList.remove("hidden"); // Changed this line
+  fetchRandomJoke(); // Fetch a joke when the quiz is submitted
+  startJokeRotation(); // Start rotating jokes
 }
 // restarts the quiz
 // like hitting the reset button on a game
