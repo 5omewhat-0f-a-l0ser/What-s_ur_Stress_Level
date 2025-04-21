@@ -39,8 +39,8 @@
 .quiz__description {
   color: var(--footer-text);
   font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin: 0 0 20px 0;
   text-align: center;
   max-width: 400px;
 }

@@ -3,6 +3,7 @@
   bottom: 0;
   width: 100%;
   background: var(--footer-background);
+  font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +18,6 @@
 
 .footer__copyright {
   margin: 24px 0 0;
-  font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--footer-text);
@@ -33,7 +33,7 @@
 .footer__link {
   font-size: 1.1rem;
   font-weight: 600;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: "Rubik Puddles", Arial, Helvetica, sans-serif;
   color: var(--primary-color);
   text-decoration: none;
 }
