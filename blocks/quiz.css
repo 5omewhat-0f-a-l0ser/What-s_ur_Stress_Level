@@ -5,12 +5,13 @@
   padding: 1.5rem;
   width: 40vw;
   height: 50vh;
-
+  margin-top: 20px;
   box-shadow: 0 2px 6px rgba(50, 93, 121, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 1.7s ease-out forwards;
 }
 
 .quiz__intro,
@@ -30,13 +31,14 @@
 }
 
 .quiz__title {
+  font-family: "Rubik Puddles", Arial, Helvetica, sans-serif;
   color: var(--title-color);
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
 }
 
 .quiz__description {
-  color: var(--text-color);
+  color: var(--footer-text);
+  font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   font-size: 1rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -46,6 +48,7 @@
 .quiz__question {
   background-color: #f9fbfd;
   border: 1px solid #c5e4f3;
+  font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   border-radius: 12px;
   padding: 1rem;
   width: 100%;
@@ -65,6 +68,7 @@
   display: block;
   width: auto;
   max-width: 100%;
+  font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   padding: 1rem;
   margin: 0.5rem 0;
   border: 2px solid #c5e4f3;
