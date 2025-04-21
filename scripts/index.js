@@ -158,8 +158,8 @@ function handleQuizSubmit(evt, form) {
   const score = calculateScore(form);
   const message = getResultMessage(score);
   quizElements.resultText.textContent = message;
-  form.classList.add("hidden"); // Changed this line
-  quizElements.resultSection.classList.remove("hidden"); // Changed this line
+  form.classList.add("hidden");
+  quizElements.resultSection.classList.remove("hidden");
   fetchRandomJoke(); // Fetch a joke when the quiz is submitted
   startJokeRotation(); // Start rotating jokes
 }
