@@ -166,7 +166,15 @@ function handleQuizSubmit(evt, form) {
 // restarts the quiz
 // like hitting the reset button on a game
 function handleQuizRetry() {
-  location.reload();
+  // Remove the old quiz form
+  const form = document.getElementById("quiz-form");
+  if (form) {
+    form.remove(); // This removes the entire form from the DOM
+  }
+  // Hide the result section
+  quizElements.resultSection.classList.add("hidden");
+  // Show the intro section with Start Quiz button
+  quizElements.introSection.classList.remove("hidden");
 }
 
 // Initialize Quiz
