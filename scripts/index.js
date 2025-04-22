@@ -110,10 +110,13 @@ function calculateScore(form) {
 // This function takes the score and returns a message based on the score
 // It's like a fortune teller for your stress level
 function getResultMessage(score) {
-  if (score <= 4) return "😌 You're super chill. Keep doing you!";
-  if (score <= 7) return "🙂 You're doing okay, just take some mindful breaks.";
-  if (score <= 10) return "😬 You're feeling it — maybe step away for a bit.";
-  return "😱 You're very stressed. Deep breath. Water. Rest.";
+  if (score <= 4)
+    return "😌 Zen Master Mode Activated You're cruising through like a pro on a Sunday stroll. Keep vibing high, you're doing amazing!";
+  if (score <= 7)
+    return "🙂 Mellow but Mindful Stress Level: You're holding it together like a champion in yoga class...🧘‍♀️";
+  if (score <= 10)
+    return "😬 On the Edge (But Still Hanging On) Stress level: popcorn in a microwave — things are starting to pop. Might be time to hit pause before you go full bag o' kernels.";
+  return "😱 Full Tilt Stress Monster Emergency! Stress level: lava. 🫠 You need a reset, stat. Your brain is in survival mode — time to treat yourself like a tired puppy.";
 }
 // hides all questions except the first one and sets up event listeners for radio buttons
 // When a radio button is selected, it hides the current question and shows the next one
