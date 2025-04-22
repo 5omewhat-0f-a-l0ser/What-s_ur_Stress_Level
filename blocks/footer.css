@@ -41,3 +41,12 @@
 .footer__link:hover {
   color: var(--secondary-color);
 }
+
+.footer__helpline-link {
+  text-decoration: none;
+  color: var(--primary-color)
+}
+
+.footer__helpline-link:hover {
+  color:  var(--secondary-color);
+}
