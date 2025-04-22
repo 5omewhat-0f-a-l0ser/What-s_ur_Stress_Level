@@ -3,9 +3,10 @@
   border: 1px solid #c5e4f3;
   border-radius: 12px;
   padding: 1.5rem;
+  padding-bottom: 60px;
   width: 40vw;
-  height: 50vh;
-  margin-top: 20px;
+  height: 60vh;
+  margin: 80px auto 40px auto;
   box-shadow: 0 2px 6px rgba(50, 93, 121, 0.05);
   display: flex;
   flex-direction: column;
@@ -93,7 +94,7 @@
   display: none;
 }
 
-.quiz__gif{
+.quiz__gif {
   display: flex;
   width: 216px;
   height: 216px;

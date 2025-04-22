@@ -21,4 +21,6 @@
   height: auto;
   image-rendering: auto;
   animation: shrinkLogo 1.5s ease-out forwards;
+  position: relative;
+  bottom: 30px;
 }
