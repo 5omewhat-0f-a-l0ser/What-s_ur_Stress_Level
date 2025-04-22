@@ -36,6 +36,7 @@
   text-align: center;
   color: var(--title-color);
   font-size: 3rem;
+  z-index: 1
 }
 
 .quiz__description {
@@ -99,3 +100,12 @@
   width: 216px;
   height: 216px;
 }
+
+@media screen and (max-width: 627px){
+  .quiz{
+    width: 100%;
+  }
+  
+ 
+}
+ 

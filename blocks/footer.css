@@ -50,3 +50,18 @@
 .footer__helpline-link:hover {
   color:  var(--secondary-color);
 }
+
+@media screen and (max-width: 627px){
+
+  .footer{
+    display: flex;
+    width: 100%;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    justify-content:start;
+  }
+
+  
+}
