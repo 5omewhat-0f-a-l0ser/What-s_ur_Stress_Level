@@ -92,3 +92,9 @@
 .quiz__label input[type="radio"] {
   display: none;
 }
+
+.quiz__gif{
+  display: flex;
+  width: 216px;
+  height: 216px;
+}
