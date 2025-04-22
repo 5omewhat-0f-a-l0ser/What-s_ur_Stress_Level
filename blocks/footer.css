@@ -18,9 +18,9 @@
 
 .footer__copyright {
   margin: 24px 0 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--footer-text);
+  color: var(--page-background);
 }
 
 .footer__nav {
@@ -31,7 +31,7 @@
 }
 
 .footer__link {
-  font-size: 1.1rem;
+  font-size: 24px;
   font-weight: 600;
   font-family: "Rubik Puddles", Arial, Helvetica, sans-serif;
   color: var(--primary-color);

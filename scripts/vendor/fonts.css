@@ -2,47 +2,47 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+  src: url("./fonts/Poppins-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  src: url("./fonts/Poppins-Medium.ttf") format("truetype");
+  src: url("./fonts/Poppins-Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Rubik Puddles";
   font-style: normal;
   font-weight: normal;
-  src: url("./fonts/RubikPuddles-Regular.ttf") format("truetype");
+  src: url("./fonts/RubikPuddles-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Playfair Display";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  src: url("./fonts/PlayfairDisplay-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Playfair Display";
   font-style: normal;
   font-weight: 500;
-  src: url("./fonts/PlayfairDisplay-Medium.ttf") format("truetype");
+  src: url("./fonts/PlayfairDisplay-Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Jua";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/Jua-Regular.ttf") format("truetype");
+  src: url("./fonts/Jua-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Rampart One";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/Alphasmoke-OOX6.ttf") format("truetype");
+  src: url("./fonts/RampartOne-Regular.woff2") format("woff2");
 }
