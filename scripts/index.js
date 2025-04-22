@@ -76,8 +76,7 @@ function calculateScore(form) {
 // This function takes the score and returns a message based on the score
 // It's like a fortune teller for your stress level
 function getResultMessage(score) {
-  if (score <= 4)
-    return "😌 Zen Master Mode Activated You're cruising through like a pro on a Sunday stroll. Keep vibing high, you're doing amazing! Maybe toss on your favorite playlist or take a moment to appreciate how chill you are right now. You earned it.";
+  if (score <= 4) return "😌 You're super chill. Keep doing you!";
   if (score <= 7) return "🙂 You're doing okay, just take some mindful breaks.";
   if (score <= 10) return "😬 You're feeling it — maybe step away for a bit.";
   return "😱 You're very stressed. Deep breath. Water. Rest.";
