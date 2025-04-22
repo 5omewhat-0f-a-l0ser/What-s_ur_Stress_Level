@@ -51,17 +51,23 @@
   color:  var(--secondary-color);
 }
 
-@media screen and (max-width: 627px){
+@media screen and (max-width: 627px), screen and (max-height:800px){
 
   .footer{
     display: flex;
+    flex-direction: row;
     width: 100%;
+    height: 17%;
+    padding: 5px;
   }
 
   .footer__nav {
     flex-direction: column;
-    justify-content:start;
+    
   }
 
+  .footer__helpline-link{
+    padding-left: 150px;
+  }
   
 }

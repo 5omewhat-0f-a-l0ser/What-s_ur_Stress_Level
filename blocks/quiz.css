@@ -101,9 +101,10 @@
   height: 216px;
 }
 
-@media screen and (max-width: 627px){
+@media screen and (max-width: 627px), screen and (max-height:800px){
   .quiz{
     width: 100%;
+    height: 50%;
   }
   
  

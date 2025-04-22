@@ -24,3 +24,11 @@
   position: relative;
   bottom: 30px;
 }
+
+
+@media screen and (max-width:627px), screen and (max-height:800px)  {
+  .header{
+    height: 100%;
+    width: 100%;
+  }
+}
