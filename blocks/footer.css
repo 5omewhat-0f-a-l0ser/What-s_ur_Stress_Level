@@ -2,6 +2,8 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  padding: 0;
+  padding-bottom: 10px;
   background: var(--footer-background);
   font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   display: flex;
@@ -17,7 +19,7 @@
 }
 
 .footer__copyright {
-  margin: 24px 0 0;
+  margin: 10px 0 0;
   font-size: 18px;
   font-weight: 700;
   color: var(--page-background);
@@ -34,7 +36,7 @@
   font-size: 24px;
   font-weight: 600;
   font-family: "Rubik Puddles", Arial, Helvetica, sans-serif;
-  color: var(--primary-color);
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -44,11 +46,11 @@
 
 .footer__helpline-link {
   text-decoration: none;
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 .footer__helpline-link:hover {
-  color:  var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 @media screen and (max-width: 627px), screen and (max-height:800px){
