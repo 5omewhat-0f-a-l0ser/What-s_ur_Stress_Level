@@ -102,14 +102,17 @@ const quizElements = {
 function calculateScore(form) {
   let total = 0;
   const formData = new FormData(form);
-  for (let [, value] of formData.entries()) {
-    total += parseInt(value);
+  for (let [name, value] of formData.entries()) {
+    console.log(`Question: ${name}, Value: ${value}`); // Debugging line
+    total += parseInt(value, 10);
   }
+  console.log(`Total Score: ${total}`); // Debugging line
   return total;
 }
 // This function takes the score and returns a message based on the score
 // It's like a fortune teller for your stress level
 function getResultMessage(score) {
+  console.log(`Score for message: ${score}`); // Debugging line
   if (score <= 4)
     return "😌 Zen Master Mode Activated You're cruising through like a pro on a Sunday stroll. Keep vibing high, you're doing amazing!";
   if (score <= 7)
