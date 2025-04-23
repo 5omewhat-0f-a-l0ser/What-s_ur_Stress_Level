@@ -1,6 +1,5 @@
 .quiz__start-btn,
-.quiz__submit-btn,
-.quiz__retry-btn {
+.quiz__submit-btn {
   font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   background-color: var(--secondary-color);
   color: white;
@@ -14,8 +13,7 @@
 }
 
 .quiz__start-btn:hover,
-.quiz__submit-btn:hover,
-.quiz__retry-btn:hover {
+.quiz__submit-btn:hover {
   background-color: var(--primary-color);
   transform: scale(1.05);
 }
@@ -24,4 +22,25 @@
 .quiz__submit-btn:active,
 .quiz__retry-btn:active {
   transform: scale(0.98);
+}
+
+.quiz__retry-btn {
+  background-image: url(../images/reset.png);
+  border: none;
+  background: transparent;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  transition: transform 2s ease;
+}
+
+.quiz__retry-btn:hover {
+  cursor: pointer;
+  border-radius: 50%;
+  transform: rotate(360deg);
+}
+
+.reset__image {
+  width: 30px;
+  height: 30px;
 }
