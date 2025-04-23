@@ -15,7 +15,7 @@
 }
 
 .quiz__result-text {
-  color: var(--title-color);
+  color: var(--result-text);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -27,7 +27,7 @@
 
 .quiz__joke-text {
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: var(--result-text);
   max-width: 500px;
   margin: 0 auto;
   animation: fadeIn 0.5s ease;
