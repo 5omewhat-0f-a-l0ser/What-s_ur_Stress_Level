@@ -31,7 +31,7 @@
   position: relative;
 }
 
-.quiz__result{
+.quiz__result {
   padding: 0;
 }
 
@@ -62,13 +62,13 @@
 .quiz__question {
   background-color: #f9fbfd;
   border: 1px solid #c5e4f3;
+  box-shadow: 0 2px 6px rgba(50, 93, 121, 0.05);
   font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   border-radius: 12px;
   font-size: 24px;
   padding: 1rem;
   width: 100%;
   flex-shrink: 1;
-  box-shadow: 0 2px 6px rgba(50, 93, 121, 0.05);
   text-align: center;
   box-sizing: border-box;
 }
