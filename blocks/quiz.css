@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.quiz__result{
+  padding: 0;
+}
+
 .quiz__form ul {
   list-style: none;
   padding: 0;
