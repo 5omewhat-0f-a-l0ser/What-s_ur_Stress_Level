@@ -101,8 +101,8 @@
   height: 216px;
 }
 
-@media screen and (max-width: 627px), screen and (max-height:800px){
-  .quiz{
+@media screen and (max-width: 627px), screen and (max-height: 800px) {
+  .quiz {
     width: 50vw;
     height: 50%;
   }
