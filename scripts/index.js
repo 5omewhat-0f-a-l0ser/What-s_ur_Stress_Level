@@ -11,22 +11,18 @@ const THEME_ICONS = {
   [THEMES.DARK]: "☀️",
 };
 
-// Get theme from localStorage or default to light
 const getStoredTheme = () => localStorage.getItem("theme") || THEMES.LIGHT;
 
-// Update theme icon based on current theme
 const updateThemeIcon = (theme) => {
   themeToggle.textContent = THEME_ICONS[theme];
 };
 
-// Set theme on document and update icon
 const setTheme = (theme) => {
   document.documentElement.setAttribute("data-theme", theme);
   updateThemeIcon(theme);
   localStorage.setItem("theme", theme);
 };
 
-// Toggle between light and dark themes
 const toggleTheme = () => {
   const currentTheme =
     document.documentElement.getAttribute("data-theme") || THEMES.LIGHT;
@@ -34,25 +30,19 @@ const toggleTheme = () => {
   setTheme(newTheme);
 };
 
-// Initialize theme functionality
 const initializeThemeToggle = () => {
   if (!themeToggle) return;
 
-  // Set initial theme
   const savedTheme = getStoredTheme();
   setTheme(savedTheme);
-
-  // Add event listener
   themeToggle.addEventListener("click", toggleTheme);
 };
 
-// Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", initializeThemeToggle);
 
 const JOKE_API_URL =
   "https://raw.githubusercontent.com/Majestyk1/stress-jokes-api/refs/heads/main/stress-jokes.json";
 
-// Fetch a random joke from the JSON file
 async function fetchRandomJoke() {
   const jokeBox = document.getElementById("joke-box");
 
@@ -68,14 +58,12 @@ async function fetchRandomJoke() {
   }
 }
 
-// Start rotating jokes every 5 seconds
 function startJokeRotation() {
   quizElements.jokeIntervalId = setInterval(() => {
     fetchRandomJoke();
   }, 8000);
 }
 
-// Stop rotating jokes
 function stopJokeRotation() {
   if (quizElements.jokeIntervalId) {
     clearInterval(quizElements.jokeIntervalId);
@@ -83,7 +71,6 @@ function stopJokeRotation() {
   }
 }
 
-// DOM Elements
 const quizElements = {
   startButton: document.querySelector(".quiz__start-btn"), //finds the start button
   introSection: document.querySelector(".quiz__intro"), //finds the intro section
@@ -95,24 +82,19 @@ const quizElements = {
   jokeIntervalId: null, // ID for the joke rotation interval
 };
 
-// Utility Functions
-// Calculate the total score based on selected radio button values
-// Assuming each question has radio buttons with values from 1 to 4
-// This is like counting all your marbles and telling you how many you have
 function calculateScore(form) {
   let total = 0;
   const formData = new FormData(form);
   for (let [name, value] of formData.entries()) {
-    console.log(`Question: ${name}, Value: ${value}`); // Debugging line
+    console.log(`Question: ${name}, Value: ${value}`);
     total += parseInt(value, 10);
   }
-  console.log(`Total Score: ${total}`); // Debugging line
+  console.log(`Total Score: ${total}`);
   return total;
 }
-// This function takes the score and returns a message based on the score
-// It's like a fortune teller for your stress level
+
 function getResultMessage(score) {
-  console.log(`Score for message: ${score}`); // Debugging line
+  console.log(`Score for message: ${score}`);
   if (score <= 4)
     return "😌 Zen Master Mode Activated You're cruising through like a pro on a Sunday stroll. Keep vibing high, you're doing amazing!";
   if (score <= 7)
@@ -121,15 +103,11 @@ function getResultMessage(score) {
     return "😬 On the Edge (But Still Hanging On) Stress level: popcorn in a microwave — things are starting to pop. Might be time to hit pause before you go full bag o' kernels.";
   return "😱 Full Tilt Stress Monster Emergency! Stress level: lava. 🫠 You need a reset, stat. Your brain is in survival mode — time to treat yourself like a tired puppy.";
 }
-// hides all questions except the first one and sets up event listeners for radio buttons
-// When a radio button is selected, it hides the current question and shows the next one
-// when you answer a question, it automatically moves to the next one
-// like turning the page of a book when you finish a chapter
+
 function setupAutoAdvance() {
   const questions = document.querySelectorAll(".quiz__question");
   const submitBtn = document.querySelector(".quiz__submit-btn");
 
-  // Hide all questions except the first one
   questions.forEach((q, i) => (q.hidden = i !== 0));
   if (submitBtn) submitBtn.classList.add("hidden");
 
@@ -154,10 +132,6 @@ function handleQuestionChange(currentQuestion, nextQuestion) {
   }
 }
 
-// Event Handlers
-// makes the quiz appear
-// hides wlelcome message
-// gets everything ready to play
 function handleQuizStart() {
   const clone = quizElements.template.content.cloneNode(true);
   document.querySelector("main").appendChild(clone);
@@ -167,9 +141,7 @@ function handleQuizStart() {
   setupAutoAdvance();
   quizForm.addEventListener("submit", (e) => handleQuizSubmit(e, quizForm));
 }
-// adds up your points
-// shows you your special message
-// like getting a prize at the end of a game
+
 function handleQuizSubmit(evt, form) {
   evt.preventDefault();
   const score = calculateScore(form);
@@ -179,30 +151,23 @@ function handleQuizSubmit(evt, form) {
   quizElements.resultSection.classList.remove("hidden");
   const submitButton = document.querySelector(".quiz__submit-btn");
   if (submitButton) submitButton.classList.add("hidden");
-  fetchRandomJoke(); // Fetch a joke when the quiz is submitted
-  startJokeRotation(); // Start rotating jokes
+  fetchRandomJoke();
+  startJokeRotation();
 }
-// restarts the quiz
-// like hitting the reset button on a game
+
 function handleQuizRetry() {
-  // Remove the old quiz form
   const form = document.getElementById("quiz-form");
   if (form) {
-    form.remove(); // This removes the entire form from the DOM
+    form.remove();
   }
-  // Stop rotating jokes
   stopJokeRotation();
-  // Hide the result section
   quizElements.resultSection.classList.add("hidden");
-  // Show the intro section with Start Quiz button
   quizElements.introSection.classList.remove("hidden");
 }
 
-// Initialize Quiz
 function initializeQuiz() {
   quizElements.startButton.addEventListener("click", handleQuizStart);
   quizElements.retryButton.addEventListener("click", handleQuizRetry);
 }
 
-// Start when DOM is ready
 document.addEventListener("DOMContentLoaded", initializeQuiz);
