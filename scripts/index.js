@@ -1,6 +1,5 @@
 const themeToggle = document.getElementById("themeToggle");
 
-// Theme constants
 const THEMES = {
   LIGHT: "light",
   DARK: "dark",
@@ -72,14 +71,14 @@ function stopJokeRotation() {
 }
 
 const quizElements = {
-  startButton: document.querySelector(".quiz__start-btn"), //finds the start button
-  introSection: document.querySelector(".quiz__intro"), //finds the intro section
-  resultSection: document.querySelector(".quiz__result"), //finds the result section
-  resultText: document.querySelector(".quiz__result-text"), // finds the result text
-  retryButton: document.querySelector(".quiz__retry-btn"), // finds the retry button
-  template: document.getElementById("quiz-template"), // finds the quiz template
-  submitButton: document.querySelector(".quiz__submit-btn"), // finds the submit button
-  jokeIntervalId: null, // ID for the joke rotation interval
+  startButton: document.querySelector(".quiz__start-btn"),
+  introSection: document.querySelector(".quiz__intro"),
+  resultSection: document.querySelector(".quiz__result"),
+  resultText: document.querySelector(".quiz__result-text"),
+  retryButton: document.querySelector(".quiz__retry-btn"),
+  template: document.getElementById("quiz-template"),
+  submitButton: document.querySelector(".quiz__submit-btn"),
+  jokeIntervalId: null,
 };
 
 function calculateScore(form) {
