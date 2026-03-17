@@ -2,38 +2,39 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 0;
-  padding-bottom: 10px;
-  background: var(--footer-background);
+  padding: 10px 12px;
   font-family: "Jua", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #c5e4f3;
-  height: 10vh;
+  background: rgba(13, 19, 42, 0.82);
+  border-top: 1px solid rgba(146, 174, 255, 0.35);
+  min-height: 72px;
   visibility: hidden;
   opacity: 0;
-  animation: bounceUp 1.2s ease-out forwards;
-  animation-delay: 1.5s;
+  animation: bounceUp 1s ease-out forwards;
+  animation-delay: 0.8s;
+  z-index: 15;
 }
 
 .footer__copyright {
-  margin: 10px 0 0;
-  font-size: 18px;
+  margin: 0;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--page-background);
+  color: var(--footer-text);
 }
 
 .footer__nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 10px;
   width: 100%;
 }
 
 .footer__link {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   font-family: "Rubik Puddles", Arial, Helvetica, sans-serif;
   color: var(--text-color);
@@ -47,29 +48,20 @@
 .footer__helpline-link {
   text-decoration: none;
   color: var(--primary-color);
+  font-size: 14px;
 }
 
 .footer__helpline-link:hover {
   color: var(--secondary-color);
 }
 
-@media screen and (max-width: 627px), screen and (max-height:800px){
-
-  .footer{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 17%;
-    padding: 5px;
+@media screen and (max-width: 627px), screen and (max-height: 800px) {
+  .footer {
+    padding: 8px 8px 10px;
+    min-height: 86px;
   }
 
-  .footer__nav {
-    flex-direction: column;
-    
+  .footer__link {
+    font-size: 17px;
   }
-
-  .footer__helpline-link{
-    padding-left: 150px;
-  }
-  
 }

@@ -1,6 +1,7 @@
 .quiz__result {
   padding: 1.5rem;
-  background-color: var(--result-background);
+  background: linear-gradient(145deg, rgba(236, 245, 255, 0.95), rgba(230, 239, 252, 0.98));
+  border: 1px solid rgba(152, 179, 255, 0.45);
   border-radius: 12px;
   text-align: center;
   width: 100%;
@@ -16,7 +17,7 @@
 
 .quiz__result-text {
   color: var(--result-text);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   margin-bottom: 1rem;
 }
 
@@ -26,7 +27,7 @@
 }
 
 .quiz__joke-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--result-text);
   max-width: 500px;
   margin: 0 auto;

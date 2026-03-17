@@ -46,13 +46,13 @@ async function fetchRandomJoke() {
   const jokeBox = document.getElementById("joke-box");
 
   try {
-    const res = await fetch(JOKE_API_URL);
-    const jokes = await res.json();
+    const response = await fetch(JOKE_API_URL);
+    const jokes = await response.json();
     const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
     jokeBox.textContent = randomJoke;
   } catch (error) {
     jokeBox.textContent =
-      "Couldn't fetch a joke. Maybe GitHub is stressed too? 😅";
+      "Couldn't fetch a joke right now. Take one slow breath and try again.";
     console.error(error);
   }
 }
@@ -77,57 +77,105 @@ const quizElements = {
   resultText: document.querySelector(".quiz__result-text"),
   retryButton: document.querySelector(".quiz__retry-btn"),
   template: document.getElementById("quiz-template"),
-  submitButton: document.querySelector(".quiz__submit-btn"),
+  submitButton: null,
+  progressBar: null,
+  progressText: null,
   jokeIntervalId: null,
 };
 
 function calculateScore(form) {
   let total = 0;
   const formData = new FormData(form);
-  for (let [name, value] of formData.entries()) {
-    console.log(`Question: ${name}, Value: ${value}`);
+
+  formData.forEach((value) => {
     total += parseInt(value, 10);
-  }
-  console.log(`Total Score: ${total}`);
+  });
+
   return total;
 }
 
 function getResultMessage(score) {
-  console.log(`Score for message: ${score}`);
-  if (score <= 4)
-    return "😌 Zen Master Mode Activated You're cruising through like a pro on a Sunday stroll. Keep vibing high, you're doing amazing!";
-  if (score <= 7)
-    return "🙂 Mellow but Mindful Stress Level: You're holding it together like a champion in yoga class...🧘‍♀️";
-  if (score <= 10)
-    return "😬 On the Edge (But Still Hanging On) Stress level: popcorn in a microwave — things are starting to pop. Might be time to hit pause before you go full bag o' kernels.";
-  return "😱 Full Tilt Stress Monster Emergency! Stress level: lava. 🫠 You need a reset, stat. Your brain is in survival mode — time to treat yourself like a tired puppy.";
+  if (score <= 4) {
+    return "😌 You are handling stress very well today. Keep your current routine going.";
+  }
+
+  if (score <= 7) {
+    return "🙂 You are mostly balanced, but a short break can still help you recharge.";
+  }
+
+  if (score <= 10) {
+    return "😬 Your stress is rising. Slow down and give yourself recovery time today.";
+  }
+
+  return "😰 Your stress level is high right now. Consider rest, support, and a lighter schedule.";
+}
+
+function updateQuizProgress(currentIndex, totalQuestions) {
+  if (!quizElements.progressBar || !quizElements.progressText) {
+    return;
+  }
+
+  const safeIndex = Math.min(Math.max(currentIndex, 0), totalQuestions - 1);
+  const currentStep = safeIndex + 1;
+  const progressPercentage = (currentStep / totalQuestions) * 100;
+
+  quizElements.progressBar.style.width = `${progressPercentage}%`;
+  quizElements.progressText.textContent = `Question ${currentStep} of ${totalQuestions}`;
 }
 
 function setupAutoAdvance() {
   const questions = document.querySelectorAll(".quiz__question");
   const submitBtn = document.querySelector(".quiz__submit-btn");
+  const totalQuestions = questions.length;
 
-  questions.forEach((q, i) => (q.hidden = i !== 0));
-  if (submitBtn) submitBtn.classList.add("hidden");
+  quizElements.progressBar = document.querySelector(".quiz__progress-bar");
+  quizElements.progressText = document.querySelector(".quiz__progress-text");
+
+  questions.forEach((question, index) => {
+    question.hidden = index !== 0;
+  });
+
+  if (submitBtn) {
+    submitBtn.classList.add("hidden");
+  }
+
+  updateQuizProgress(0, totalQuestions);
 
   questions.forEach((question, index) => {
     const inputs = question.querySelectorAll("input[type='radio']");
+
     inputs.forEach((input) => {
-      input.addEventListener("change", () =>
-        handleQuestionChange(question, questions[index + 1])
-      );
+      input.addEventListener("change", () => {
+        handleQuestionChange(
+          question,
+          questions[index + 1],
+          index + 1,
+          totalQuestions
+        );
+      });
     });
   });
 }
 
-function handleQuestionChange(currentQuestion, nextQuestion) {
+function handleQuestionChange(
+  currentQuestion,
+  nextQuestion,
+  nextQuestionIndex,
+  totalQuestions
+) {
   currentQuestion.hidden = true;
 
   if (nextQuestion) {
     nextQuestion.hidden = false;
+    updateQuizProgress(nextQuestionIndex, totalQuestions);
   } else {
     const submitBtn = document.querySelector(".quiz__submit-btn");
-    if (submitBtn) submitBtn.classList.remove("hidden");
+
+    if (submitBtn) {
+      submitBtn.classList.remove("hidden");
+    }
+
+    updateQuizProgress(totalQuestions - 1, totalQuestions);
   }
 }
 
@@ -135,31 +183,43 @@ function handleQuizStart() {
   const clone = quizElements.template.content.cloneNode(true);
   document.querySelector("main").appendChild(clone);
   quizElements.introSection.classList.add("hidden");
+
   const quizForm = document.getElementById("quiz-form");
   quizElements.submitButton = document.querySelector(".quiz__submit-btn");
+
   setupAutoAdvance();
-  quizForm.addEventListener("submit", (e) => handleQuizSubmit(e, quizForm));
+  quizForm.addEventListener("submit", (event) => handleQuizSubmit(event, quizForm));
 }
 
-function handleQuizSubmit(evt, form) {
-  evt.preventDefault();
+function handleQuizSubmit(event, form) {
+  event.preventDefault();
+
   const score = calculateScore(form);
   const message = getResultMessage(score);
+
   quizElements.resultText.textContent = message;
   quizElements.introSection.classList.add("hidden");
   quizElements.resultSection.classList.remove("hidden");
-  const submitButton = document.querySelector(".quiz__submit-btn");
-  if (submitButton) submitButton.classList.add("hidden");
+
+  if (quizElements.submitButton) {
+    quizElements.submitButton.classList.add("hidden");
+  }
+
   fetchRandomJoke();
   startJokeRotation();
 }
 
 function handleQuizRetry() {
   const form = document.getElementById("quiz-form");
+
   if (form) {
     form.remove();
   }
+
   stopJokeRotation();
+  quizElements.progressBar = null;
+  quizElements.progressText = null;
+
   quizElements.resultSection.classList.add("hidden");
   quizElements.introSection.classList.remove("hidden");
 }
