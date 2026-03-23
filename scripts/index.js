@@ -10,6 +10,8 @@ const THEME_ICONS = {
   [THEMES.DARK]: "☀️",
 };
 
+const LAST_RESULT_STORAGE_KEY = "calmcheck-last-result";
+
 const getStoredTheme = () => localStorage.getItem("theme") || THEMES.LIGHT;
 
 const updateThemeIcon = (theme) => {
@@ -80,6 +82,9 @@ const quizElements = {
   submitButton: null,
   progressBar: null,
   progressText: null,
+  scoreText: document.getElementById("quiz-score"),
+  tipsList: document.getElementById("quiz-tips"),
+  lastResultText: document.getElementById("last-result"),
   jokeIntervalId: null,
 };
 
@@ -108,6 +113,93 @@ function getResultMessage(score) {
   }
 
   return "😰 Your stress level is high right now. Consider rest, support, and a lighter schedule.";
+}
+
+function getTipsByScore(score) {
+  if (score <= 4) {
+    return [
+      "Keep your current routine and sleep schedule.",
+      "Take short movement breaks to stay balanced.",
+    ];
+  }
+
+  if (score <= 7) {
+    return [
+      "Plan one short break block in your day.",
+      "Reduce one non-essential task for today.",
+    ];
+  }
+
+  if (score <= 10) {
+    return [
+      "Use a 10-minute reset: walk, breathe, hydrate.",
+      "Limit caffeine after afternoon hours.",
+      "Prioritize your top 1-2 tasks only.",
+    ];
+  }
+
+  return [
+    "Pause and rest before pushing more work.",
+    "Reach out to someone you trust for support.",
+    "Consider speaking with a professional resource if this feeling continues.",
+  ];
+}
+
+function renderTips(tips) {
+  if (!quizElements.tipsList) {
+    return;
+  }
+
+  quizElements.tipsList.innerHTML = "";
+
+  tips.forEach((tip) => {
+    const tipItem = document.createElement("li");
+    tipItem.textContent = tip;
+    quizElements.tipsList.append(tipItem);
+  });
+}
+
+function storeLastResult(score) {
+  const payload = {
+    score,
+    date: new Date().toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }),
+  };
+
+  localStorage.setItem(LAST_RESULT_STORAGE_KEY, JSON.stringify(payload));
+}
+
+function renderLastResult() {
+  if (!quizElements.lastResultText) {
+    return;
+  }
+
+  const storedValue = localStorage.getItem(LAST_RESULT_STORAGE_KEY);
+
+  if (!storedValue) {
+    quizElements.lastResultText.hidden = true;
+    return;
+  }
+
+  try {
+    const parsedValue = JSON.parse(storedValue);
+
+    if (
+      typeof parsedValue.score !== "number" ||
+      typeof parsedValue.date !== "string"
+    ) {
+      quizElements.lastResultText.hidden = true;
+      return;
+    }
+
+    quizElements.lastResultText.textContent = `Last check: ${parsedValue.score}/15 on ${parsedValue.date}`;
+    quizElements.lastResultText.hidden = false;
+  } catch {
+    quizElements.lastResultText.hidden = true;
+  }
 }
 
 function updateQuizProgress(currentIndex, totalQuestions) {
@@ -196,8 +288,12 @@ function handleQuizSubmit(event, form) {
 
   const score = calculateScore(form);
   const message = getResultMessage(score);
+  const tips = getTipsByScore(score);
 
   quizElements.resultText.textContent = message;
+  quizElements.scoreText.textContent = `Score: ${score} / 15`;
+  renderTips(tips);
+
   quizElements.introSection.classList.add("hidden");
   quizElements.resultSection.classList.remove("hidden");
 
@@ -205,6 +301,8 @@ function handleQuizSubmit(event, form) {
     quizElements.submitButton.classList.add("hidden");
   }
 
+  storeLastResult(score);
+  renderLastResult();
   fetchRandomJoke();
   startJokeRotation();
 }
@@ -225,6 +323,7 @@ function handleQuizRetry() {
 }
 
 function initializeQuiz() {
+  renderLastResult();
   quizElements.startButton.addEventListener("click", handleQuizStart);
   quizElements.retryButton.addEventListener("click", handleQuizRetry);
 }

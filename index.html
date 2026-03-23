@@ -25,6 +25,7 @@
           <p class="quiz__description">
             Take this short quiz to reflect on how you're feeling today.
           </p>
+          <p class="quiz__last-result" id="last-result" hidden></p>
           <button class="quiz__start-btn">Start Quiz</button>
         </section>
         <section>
@@ -124,10 +125,12 @@
 
         <section class="quiz__result hidden">
           <h2 class="quiz__result-title">Your Stress Level:</h2>
+          <p class="quiz__score" id="quiz-score"></p>
           <p class="quiz__result-text">
             You seem to be a little stressed. Try to take breaks and prioritize
             rest.
           </p>
+          <ul class="quiz__tips" id="quiz-tips"></ul>
           <div class="quiz__joke">
             <p class="quiz__joke-text" id="joke-box"></p>
           </div>

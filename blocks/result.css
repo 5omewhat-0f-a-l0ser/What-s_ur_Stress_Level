@@ -15,10 +15,27 @@
   margin-bottom: 0.5rem;
 }
 
+.quiz__score {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  color: #2f5c8e;
+  font-size: 1.05rem;
+}
+
 .quiz__result-text {
   color: var(--result-text);
   font-size: 1.35rem;
   margin-bottom: 1rem;
+}
+
+.quiz__tips {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+  color: #36597f;
+  font-size: 1rem;
+  display: grid;
+  gap: 8px;
 }
 
 .quiz__joke {
